@@ -1,0 +1,42 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red114\green121\blue129;\red235\green236\blue237;\red36\green38\blue41;
+\red104\green26\blue29;\red43\green39\blue19;}
+{\*\expandedcolortbl;\csgray\c100000;\cssrgb\c52157\c54902\c57647;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;
+\cssrgb\c49020\c15294\c15294;\cssrgb\c22353\c20000\c9412;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 This program is designed to interface with MX25L1006E (May work with others)\
+The schematic currently show  the MX25L1006E connected to an Arduino Nano\
+\
+Current Commands:\
+\
+RDID:  Read ID\
+RDSR:  Read Status Register\
+REMS:  Read Electronic Manufacturer ID\
+RES:  Read Electronic Signature\
+READ,*:  Read Memory followed by number of 4K Sectors\
+\
+TODO:\
+\
+Add compile time if def for cpu types for working with 16 Bit or 32 Bit CPU\'92s (issue with high order addresses)\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\cf4 \strokec4 \
+\cf2 \strokec2 #define\cf4 \strokec4  DEBUG_CAPTURE_SIZE \cf5 \strokec5 7168\cf4 \strokec4 \
+\cf2 \strokec2 #define\cf4 \strokec4  CAPTURE_SIZE \cf5 \strokec5 7168\cf4 \strokec4 \
+\cf2 \strokec2 #elif\cf4 \strokec4  defined(__AVR_ATmega328P__)\
+\cf2 \strokec2 #define\cf4 \strokec4  DEBUG_CAPTURE_SIZE \cf5 \strokec5 1024\cf4 \strokec4 \
+\cf2 \strokec2 #define\cf4 \strokec4  CAPTURE_SIZE \cf5 \strokec5 1024\cf4 \strokec4 \
+\cf2 \strokec2 #else\cf4 \strokec4 \
+\cf2 \strokec2 #define\cf4 \strokec4  DEBUG_CAPTURE_SIZE \cf5 \strokec5 532\cf4 \strokec4 \
+\cf2 \strokec2 #define\cf4 \strokec4  CAPTURE_SIZE \cf5 \strokec5 532\cf4 \strokec4 \
+\cf2 \strokec2 #endif\cf6 \strokec6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+Add help function\
+Add write functions \
+Add Read SFDP Serial Flash Discoverable Parameters}
